@@ -17,5 +17,3 @@ export const CombinedData = [
   ...MenClothesData,
   ...MenLeatherGoodsData,
 ];
-
-console.log(CombinedData);

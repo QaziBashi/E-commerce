@@ -41,10 +41,9 @@ const SignIn = ({ setIsLoggedIn }) => {
     navigate("/signup");
   };
 
-
-  const nevigatetoSignUp=()=>{
-    navigate("/SignUp")
-  }
+  const nevigatetoSignUp = () => {
+    navigate("/signup");
+  };
   useEffect(() => {
     const existingUsers = JSON.parse(localStorage.getItem("users"));
     if (!existingUsers || existingUsers.length === 0) {
@@ -123,16 +122,15 @@ const SignIn = ({ setIsLoggedIn }) => {
               >
                 login
               </button>
-
             </form>
-            
-              <button
-                className="buttonn"
-                // className=" hidden max-[360px]:block"
-                onClick={nevigatetoSignUp}
-              >
-                SignUp
-              </button>
+
+            <button
+              className="buttonn"
+              // className=" hidden max-[360px]:block"
+              onClick={nevigatetoSignUp}
+            >
+              SignUp
+            </button>
           </div>
           {/* <div className=" w-[500px] h-[600px] bg-red-800"></div> */}
 

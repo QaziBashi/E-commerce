@@ -1,4 +1,4 @@
-* {
+/* * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -16,7 +16,7 @@
   transform-origin: center;
   transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1),
     top 1s cubic-bezier(0.77, 0, 0.175, 1), letter-spacing 1s ease-in;
-  /* z-index: 999; */
+
   z-index: -1;
   pointer-events: none;
 }
@@ -29,18 +29,15 @@
   font-size: 40px;
 }
 
-/* Shrink back on scroll */
+
 .div2.shrink {
   top: 35px;
   transform: translate(-50%, -50%) scale(1);
   letter-spacing: 4px;
 }
-/* FULL HERO SECTION IMAGES  */
 
-/* FOR DIV SHRINK AND EXPAND ON MOBILE SCREEN MEDIA QUERY  */
 
 @media screen and (max-width: 360px) {
-  /* Styles for screens up to 360px wide */
 
   .div2 {
     position: fixed;
@@ -50,13 +47,13 @@
     font-weight: 550;
     color: #832b00;
     font-size: 14px;
-    /* letter-spacing: 5px; */
+  
     transform-origin: center;
     transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1),
       top 1s cubic-bezier(0.77, 0, 0.175, 1), letter-spacing 1s ease-in;
     z-index: 999;
     pointer-events: none;
-    /* z-index: -1; */
+   
   }
 
   .div2.expand {
@@ -88,27 +85,14 @@
 }
 
 .contact-div {
-  padding: 15px;
-  width: 500px;
-  height: 100vh;
-  background-color: rgb(193, 66, 49);
-  animation-duration: 0.5s;
-  animation-name: slide-in-right;
-  z-index: 1000;
+  display: none;
 }
-/* .checkOut {
-  width: 900px;
-  padding: 20px 0px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 auto;
-} */
+
 #close-btn {
   padding: 60px;
   font-size: 25px;
   cursor: pointer;
-  position: absolute;
+
 }
 .chekOutBtn {
   font-size: 20px;
@@ -121,43 +105,27 @@
   #menu-div {
     width: 360px;
   }
-  .contact-div {
+.contact-div {
     width: 360px;
   }
 
   .contact-div {
-    display: flex;
-    margin: 0 auto;
-    position: absolute;
-    right: 0;
-    top: 0;
-    padding: 50px;
-    width: 360px;
-    height: 100vh;
-    background-color: rgb(193, 66, 49);
-    animation-duration: 0.5s;
-    animation-name: slide-in-right;
-    /* animation-name: slide-in-left; */
+    display: none;
   }
   .checkOut {
     display: flex;
     width: 320px;
-    /* padding: 20px; */
+   
     display: flex;
     padding: 0px 20px;
     justify-content: space-between;
     align-items: center;
-    /* margin: 0 auto; */
+   
   }
-  /* #close-btn {
-    padding: 20px;
-    font-size: 18px;
-    cursor: pointer;
-    position: absolute;
-  } */
+ 
    .chekOutBtn {
   font-size: 16px;
-  /* padding: 3px 5px; */
+
   border: none;
   border: 2px solid black;
 }
@@ -207,14 +175,7 @@
   height: 50px;
   background: #c50a0a;
 }
-/* .account-div {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: gray;
-} */
+
 
 .createAccount-div {
   width: 500px;
@@ -259,22 +220,22 @@
 
 @keyframes slide-in-right {
   from {
-    transform: translateX(-150vw);
-    scale: 200% 1;
+    transform: translateX(150vw);
+    opacity: 0;
   }
   to {
     transform: translateX(0);
-    scale: 100% 1;
+    opacity: 1;
   }
 }
 @keyframes slide-in-left {
   from {
-    transform: translateX(150vw);
-    scale: 200% 1;
+    transform: translateX(-150vw);
+    opacity: 0;
   }
   to {
     transform: translateX(0);
-    scale: 100% 1;
+    opacity: 1;
   }
 }
 
@@ -307,8 +268,7 @@
   border: none;
   box-sizing: border-box;
   cursor: pointer;
-  /* display: inline-block; */
-  opacity: 0;
+    opacity: 0;
   font-family: -apple-system, sans-serif;
   font-size: 1.2rem;
   font-weight: 700;
@@ -320,8 +280,7 @@
 }
 
 .button:hover {
-  /* background-color: #ffc229;
-  box-shadow: #ff6314 0 -6px 8px inset; */
+
 
   background-color: #e3a29c;
   box-shadow: #5e3c2c 0 -6px 8px inset;
@@ -349,5 +308,215 @@
     display: block;
     width: 270px;
     opacity: 1;
+  }
+} */
+/* RESET */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* =========================
+   BRAND CENTER LOGO ANIMATION
+   ========================= */
+
+.div2 {
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  font-weight: 500;
+  color: #832b00;
+  font-size: 40px;
+  letter-spacing: 5px;
+  z-index: 1;
+  pointer-events: none;
+
+  transition:
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    top 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    letter-spacing 0.6s ease;
+}
+
+/* EXPAND STATE */
+.div2.expand {
+  top: 45%;
+  transform: translate(-50%, -50%) scale(3.2);
+  letter-spacing: 8px;
+}
+
+/* SHRINK STATE */
+.div2.shrink {
+  top: 35px;
+  transform: translate(-50%, -50%) scale(1);
+  letter-spacing: 4px;
+}
+
+/* =========================
+   OVERLAY (SMOOTH FADE)
+   ========================= */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(6px);
+
+  animation: fadeIn 0.25s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* =========================
+   SIDE PANEL (RIGHT SLIDE)
+   ========================= */
+
+.side-panel {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 420px;
+  background: #fff;
+
+  transform: translateX(100%);
+  animation: slideIn 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
+  padding: 40px;
+}
+
+/* SLIDE IN */
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* SLIDE OUT (optional if you want later) */
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+/* =========================
+   ICONS
+   ========================= */
+
+#icon {
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+#icon:hover {
+  transform: scale(1.15);
+  opacity: 0.7;
+}
+
+/* =========================
+   CLOSE BUTTON
+   ========================= */
+
+#close-btn {
+  font-size: 22px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+#close-btn:hover {
+  transform: rotate(90deg);
+}
+
+/* =========================
+   MENU LIST
+   ========================= */
+
+#menu-point {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-top: 80px;
+  font-size: 20px;
+  font-family: sans-serif;
+}
+
+#menu-point p {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#menu-point p:hover {
+  transform: translateX(10px);
+  color: #832b00;
+}
+
+/* =========================
+   BUTTON (SMOOTH UX)
+   ========================= */
+
+.button {
+  width: 24rem;
+  padding: 12px;
+  border-radius: 40px;
+  border: none;
+  cursor: pointer;
+
+  background: #fff;
+  box-shadow: inset 0 -10px 20px #edd6ca;
+
+  font-size: 1.2rem;
+  font-weight: 600;
+
+  transition: all 0.25s ease;
+}
+
+.button:hover {
+  transform: scale(1.06);
+  background: #e3a29c;
+  color: white;
+  box-shadow: inset 0 -6px 10px #5e3c2c;
+}
+
+.button:active {
+  transform: scale(1.02);
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+   ========================= */
+
+@media screen and (max-width: 360px) {
+  .div2 {
+    font-size: 14px;
+  }
+
+  .div2.expand {
+    transform: translate(-50%, -50%) scale(2);
+    top: 40%;
+  }
+
+  .side-panel {
+    width: 100%;
+    padding: 25px;
+  }
+
+  .button {
+    width: 270px;
+    font-size: 1rem;
   }
 }

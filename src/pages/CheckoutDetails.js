@@ -7,7 +7,7 @@ const CheckoutDetails = () => {
   return (
     <>
     <NavBar/>
-    <div className=" flex flex-col items-center mt-[100px] mx-20 gap-7">
+    <div className=" min-[360px]:max-w-full flex flex-col justify-center items-center mt-[100px] mx-[20px] gap-7">
       <h1 className=" text-center text-4xl font-semibold ">
         Shipping & Payment Details
       </h1>

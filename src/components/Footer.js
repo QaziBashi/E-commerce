@@ -106,9 +106,9 @@ import { useNavigate } from "react-router-dom";
 let Footer = () => {
   const navigate = useNavigate();
 
-  const mencloth = () => navigate("/mencloth");
+const mencloth = () => navigate("/mencloth");
   const menBag = () => navigate("/menBag");
-  const menshoes = () => navigate("/menShoe");
+  const menshoes = () => navigate("/menshoe");
   const WomenBags = () => navigate("/bags");
   const womenshoes = () => navigate("/womenshoe");
 

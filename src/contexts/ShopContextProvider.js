@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 // import { ProductdataofwomenShoe } from "./DummyData/WomenShoe";
 import { CombinedData } from "../DummyData/CombinedData";
 export const ShopContext = createContext(null);
@@ -10,13 +10,28 @@ const getDefaultCart = () => {
   }
   return cart;
 };
-// console.log(CombinedData.length);
-const ShopContextProvider = (props) => {
-  // const { productPrice } = data;
-  // const { updateCartItemCount } = useContext(ShopContext);
 
-  const [cartItem, setCartItem] = useState(getDefaultCart());
-  // console.log("The cart item is : ", cartItem);
+const getCartFromStorage = () => {
+  const savedCart = localStorage.getItem("shoppingCart");
+  if (savedCart) {
+    const parsed = JSON.parse(savedCart);
+    const validCart = getDefaultCart();
+    for (const key in parsed) {
+      if (validCart.hasOwnProperty(key)) {
+        validCart[key] = parsed[key];
+      }
+    }
+    return validCart;
+  }
+  return getDefaultCart();
+};
+
+const ShopContextProvider = (props) => {
+  const [cartItem, setCartItem] = useState(getCartFromStorage);
+
+  useEffect(() => {
+    localStorage.setItem("shoppingCart", JSON.stringify(cartItem));
+  }, [cartItem]);
 
   const increaseItem = (itemId) => {
     setCartItem((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
@@ -32,12 +47,8 @@ const ShopContextProvider = (props) => {
   //   }
   // };
 
-  const removeCart = (itemId) => {
-    setCartItem((prev) => {
-      if (prev[itemId] === 1) {
-        return { ...prev, [itemId]: 0 };
-      } 
-    });
+const removeCart = (itemId) => {
+    setCartItem((prev) => ({ ...prev, [itemId]: 0 }));
   };
 
   const decreaseItem = (itemId) => {
@@ -54,12 +65,13 @@ const ShopContextProvider = (props) => {
     setCartItem((prev) => ({ ...prev, [itemId]: newAmount }));
   };
 
-  const gettotallCartAmount = () => {
+const gettotallCartAmount = () => {
     let totallAmount = 0;
 
     for (const Items in cartItem) {
       if (cartItem[Items] > 0) {
-        let productInfo = CombinedData.find((product) => product.id === Items);
+        let productInfo = CombinedData.find((product) => product.id === Number(Items));
+        if (!productInfo) continue;
         const price = Number(
           productInfo.productPrice.replace(/[^0-9.-]+/g, "")
         );

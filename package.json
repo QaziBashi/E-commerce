@@ -44,7 +44,21 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.21",
+    "electron": "^39.2.0",
     "postcss": "^8.5.3",
     "tailwindcss": "^3.4.17"
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "postcss.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mubashir2134/E-comrece.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mubashir2134/E-comrece/issues"
+  },
+  "homepage": "."
 }

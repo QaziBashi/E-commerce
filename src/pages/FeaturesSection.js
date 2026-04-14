@@ -12,7 +12,9 @@ const FeaturesSection = () => {
     <>
       <div className="w-[100%] h-auto flex flex-col items-center">
         <div className="w-[100%] flex flex-col items-center m-[50px] px-[50px] gap-[70px]  max-[360px]:gap-[40px] max-[360px]:p-[25px]">
-          <h1 className=" text-[36px] font-bold  max-[360px]:text-[25px]">Why Chose Us?</h1>
+          <h1 className=" text-[36px] font-bold  max-[360px]:text-[25px]">
+            Why Chose Us?
+          </h1>
           <div className=" w-[100%] flex justify-between items-center max-[360px]:flex-col max-[360px]:gap-[20px]   text-3xl flex-wrap">
             <div className=" w-[200px] flex flex-col items-center gap-5 ">
               <div
@@ -33,7 +35,7 @@ const FeaturesSection = () => {
                 <p>We deliver your products quickly with no extra charge.</p>
               </div>
             </div>
-            <div className="main-icon">
+            <div className=" w-[200px] flex flex-col items-center gap-5">
               <div
                 style={{
                   background:
@@ -44,12 +46,15 @@ const FeaturesSection = () => {
                 <FontAwesomeIcon id="icon" icon={faMoneyCheckDollar} />
               </div>
 
-              <div id="discription">
+              <div
+                id="discription"
+                className="text-[18px] w-[200px] text-center"
+              >
                 <h4 className="text-xl font-semibold"> Secure Payment</h4>
                 <p>Your transactions are encrypted and 100% secure.</p>
               </div>
             </div>
-            <div className="main-icon">
+            <div className=" w-[200px] flex flex-col items-center gap-5">
               <div
                 style={{
                   background:
@@ -60,12 +65,15 @@ const FeaturesSection = () => {
                 <FontAwesomeIcon id="icon" icon={faShield} />
               </div>
 
-              <div id="discription">
+              <div
+                id="discription"
+                className="text-[18px] w-[200px] text-center"
+              >
                 <h4 className="text-xl font-semibold">100% Money Back</h4>
                 <p>Get a full refund within 7 days if you're not satisfied.</p>
               </div>
             </div>
-            <div className="main-icon">
+            <div className=" w-[200px] flex flex-col items-center gap-5">
               <div
                 style={{
                   background:
@@ -76,7 +84,10 @@ const FeaturesSection = () => {
                 <FontAwesomeIcon id="icon" icon={faHandHoldingDollar} />
               </div>
 
-              <div id="discription">
+              <div
+                id="discription"
+                className="text-[18px] w-[200px] text-center"
+              >
                 <h4 className="text-xl font-semibold"> 100% Authenticity</h4>
                 <p>All our products are original and quality assured.</p>
               </div>

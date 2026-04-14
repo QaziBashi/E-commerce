@@ -40,14 +40,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 // import ShippingAdress from "./components/ShippingAdress";
 import CheckoutDetails from "./pages/CheckoutDetails";
 // import PaymentMethod from "./components/PaymentMethod";
-const isFirstload = localStorage.getItem(false);
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   useEffect(() => {
-    if (isFirstload) {
-      localStorage.clear();
-      localStorage.setItem("firstLoad", "true");
+    const hasReloaded = localStorage.getItem('hasReloaded');
+    if (!hasReloaded) {
+      localStorage.setItem('hasReloaded', 'true');
     }
     const loggedInStatus = localStorage.getItem("isLoggedIn");
     setIsLoggedIn(loggedInStatus === "true");
@@ -55,46 +54,31 @@ function App() {
   return (
     <BrowserRouter>
       <ScrollToTop>
-        {isLoggedIn ? (
-          <>
-            <ShopContextProvider>
-              <Routes>
+        <ShopContextProvider>
+          <Routes>
+            <Route path="/" element={isLoggedIn ? <HomePage /> : <SignIn setIsLoggedIn={setIsLoggedIn} />} />
+            <Route path="/signin" element={<SignIn setIsLoggedIn={setIsLoggedIn} />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/successMsg" element={<SuccessMsg />} />
+            
+            {isLoggedIn && (
+              <>
                 <Route path="/homepage" element={<HomePage />} />
                 <Route path="/bags" element={<WomenBags />} />
                 <Route path="/smallbag" element={<WomenSmallBags />} />
                 <Route path="/womenAccessories" element={<WomenAccessoris />} />
-
                 <Route path="/womenshoe" element={<WomenShoes />} />
-
                 <Route path="/menBag" element={<MenBagsPage />} />
                 <Route path="/menshoe" element={<MenShoePage />} />
                 <Route path="/leathergood" element={<MenLeatherGoodsPage />} />
                 <Route path="/mencloth" element={<MenClothesPage />} />
-
                 <Route path="/cartComponent" element={<ShoppingCart />} />
                 <Route path="/maincard" element={<CardsComponent />} />
-
                 <Route path="/shippingAdress" element={<CheckoutDetails />} />
-                {/* <Route path="/categories" element={<ShopByCatagories />} /> */}
-              </Routes>
-            </ShopContextProvider>
-          </>
-        ) : (
-          <Routes>
-            <Route
-              path="/"
-              element={<SignIn setIsLoggedIn={setIsLoggedIn} />}
-            />
-            <Route
-              path="/signin"
-              element={<SignIn setIsLoggedIn={setIsLoggedIn} />}
-            />
-            <Route path="/homepage" element={<HomePage />} />
-
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/successMsg" element={<SuccessMsg />} />
+              </>
+            )}
           </Routes>
-        )}
+        </ShopContextProvider>
       </ScrollToTop>
     </BrowserRouter>
   );
